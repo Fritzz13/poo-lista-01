@@ -1,7 +1,4 @@
 # Questões de POO
-### Turma de ADS no IFSPB
-
----
 
 ## Questão 5:
 O Scanner funciona ao 'olhar' a memória indicada a ele no momento de criação do objeto, dividir em *tokens* e ler o tipo de dado que ele procura nos *tokens*.
@@ -28,6 +25,7 @@ void main() {
 }
 ```
 
+
 O System.out.printf (abreviado aqui pra 'printf') é um dos comandos de saída, como System.out.print e System.out.println, com a diferença que ele pode receber certos especificadores para formatar os dados que ele recebe (por isso o f).
 Tem especificadores para vários tipos primitivos, como %d para int, %f para float, %s para String, entre outros. Dentro dos próprios especificadores, você pode colocar modificadores para modificar como o dado é impresso para o usuário. Por exemplo, ao colocar '%05d' na string do printf, o inteiro vai aparecer formatado com no mínimo 5 dígitos, e se ele for menor que isso, os dígitos extras serão preenchidos por 0s à esquerda.
 
@@ -36,11 +34,20 @@ Exemplo:
 import java.util.Scanner;
 
 void main() {
-  int raio = 10;
-  float pi = 3.14159f;
+  Scanner scanner = new Scanner(System.in);
+  double a, b;
   
-  System.out.printf("%.2f * %03d^2 = %08.2f", pi, raio, (pi*raio*raio));
-  // vai ser impresso "3,14 * 010^2 = 00314,16"
+  IO.print("Informe A: ");
+  a = scanner.nextDouble();
+  scanner.nextLine();
+  IO.print("Informe B: ");
+  b = scanner.nextDouble();
+  
+  double c = Math.sqrt((a*a) + (b*b));
+  
+  System.out.printf("O terceiro lado é %.2f", c);
+  /* se 'a' e 'b' forem 1, aqui vai ser impresso "O terceiro lado é 1,41"
+     ao inves de "O terceiro lado é 1,414214"
 }
 ```
 
